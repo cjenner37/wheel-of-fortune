@@ -35,4 +35,10 @@ body {
   opacity: 0.8;
   border-radius: 25px; }
 
+.btn-success {
+  max-height: 60px;
+  position: absolute;
+  right: 199px;
+  top: 47.22%; }
+
 /*# sourceMappingURL=index.css.map */
