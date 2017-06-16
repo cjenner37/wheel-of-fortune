@@ -2,9 +2,6 @@ body {
   margin: 0;
   background: lightblue; }
 
-* {
-  border: 1px dashed grey; }
-
 #wheel img {
   max-height: 100%;
   max-width: 100%;

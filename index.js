@@ -9,6 +9,8 @@ $(document).ready(function () {
 	$('.alphabet').click(function () {
 		$letterChosen = $(this).data("letter");
 		$(this).css({'background-color': 'lightgrey', 'opacity': '.7', 'color': 'grey', 'border': '1px solid grey'});
+		checkLetter($letterChosen);
+		console.log($letterChosen);
 	})
 	
 })
@@ -17,7 +19,7 @@ $(document).ready(function () {
 		word = "chameleon";
 		wordLength = word.length;
 		for (var i = 0; i < wordLength; i++) {
-			$('.letter-boxes').append(`<div class="col"></div>`)
+			$('.letter-boxes').append(`<div class="col guess-boxes"></div>`)
 		}
 	}
 
@@ -30,6 +32,10 @@ $(document).ready(function () {
 		console.log(prizes[multiplier]);
 	}
 
-	function checkLetter($letterChosen) {
-		word.split("")
+	function checkLetter(letter) {
+		for (var i = 0; i < wordLength; i++) {
+			if (word[i] === letter) {
+				$('.guess-boxes')[i].append(letter);
+			}
+		}
 	}
