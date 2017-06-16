@@ -1,0 +1,47 @@
+body {
+	margin: 0;
+	background: lightblue;
+}
+
+#page {
+}
+
+#wheel {
+	position: relative;
+	display: flex;
+	max-width: 700px;
+	height: 700px;
+	img {
+		max-height: 100%;
+		max-width: 100%;
+		margin-left: -50%;
+	}
+}
+
+#logo-div {
+	display: flex;
+	justify-content: center;
+	flex-direction: center;
+	height: 200px;
+	#logo {
+		display: flex;
+		justify-content: center;
+	}
+	img {
+		max-height: 100%;
+	}
+}
+
+#arrow {
+	position: absolute;
+   right: 50%;
+   top: 47%;
+   width: 0;
+   height: 0;
+   border-top: 20px solid transparent;
+   border-bottom: 20px solid transparent;
+   border-right: 70px solid firebrick;
+   opacity: 0.8;
+   border-radius: 25px;
+
+}
