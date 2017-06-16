@@ -63,6 +63,20 @@ body {
 	border: 1px solid black;
 }
 
+.vowel {
+	color: red;
+}
+
 #choose-letter {
+	margin: 40px;
 	text-align: center;
+}
+
+.letter-boxes {
+	margin-top: 100px;
+	div {
+		height: 80px;
+		border: 2px solid grey;
+		border-radius: 4px;
+	}
 }
