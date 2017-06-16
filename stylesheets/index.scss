@@ -3,15 +3,16 @@ body {
 	background: lightblue;
 }
 
+* {
+	border: 1px dashed grey;
+}
+
 #page {
 	
 }
 
 #wheel {
-	position: relative;
-	display: flex;
-	max-width: 700px;
-	height: 700px;
+
 	img {
 		max-height: 100%;
 		max-width: 100%;
@@ -35,8 +36,8 @@ body {
 
 #arrow {
 	position: absolute;
-   right: 50%;
-   top: 47%;
+   right: 46%;
+   top: 45%;
    width: 0;
    height: 0;
    border-top: 20px solid transparent;
@@ -49,10 +50,19 @@ body {
 .btn-success {
 	max-height: 60px;
    position: absolute;
-   right: 199px;
-   top: 47.22%;
+   right: 5%;
+   top: 45.5%;
 }
 
 .container {
 
+}
+
+.alphabet {
+	text-align: center;
+	border: 1px solid black;
+}
+
+#choose-letter {
+	text-align: center;
 }
