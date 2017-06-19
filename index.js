@@ -1,15 +1,24 @@
+var word, wordLength;
+var alphabetDisabled = true;
+var consonantDisabled = false;
+var usedLetters = [];
 $(document).ready(function () {
-	var word, wordLength;
-	var alphabetDisabled = true;
-	var consonantDisabled = false;
-	var usedLetters = [];
 	loadWord();
 
+	$('#solve').click(function () {
+		if (word === $('#guess').val()) {
+			alert("You Win!");
+			loadWord();
+		} else {
+			alert("You Lose!");
+		}
+	})
+
 	$('.spin-wheel').click(function () {
-			spinWheel();
-			$(this).prop('disabled', true);
-			alphabetDisabled = false;
-			consonantDisabled = false;
+		spinWheel();
+		$(this).prop('disabled', true);
+		alphabetDisabled = false;
+		consonantDisabled = false;
 	})
 	
 	$('.alphabet').click(function () {
@@ -27,7 +36,7 @@ $(document).ready(function () {
 					$($self).css({'background-color': 'lightgrey', 'opacity': '.7', 'color': 'grey', 'border': '1px solid grey'});
 					$($self).addClass('used');
 					buyVowel($letterChosen);
-				})
+				});
 
 			} else if (!consonantDisabled) {
 				$(this).css({'background-color': 'lightgrey', 'opacity': '.7', 'color': 'grey', 'border': '1px solid grey'});
@@ -40,18 +49,25 @@ $(document).ready(function () {
 				}
 			}
 		}
-	})
+	});
 	
-})
+}); // end document.ready
 
 var bankValue = 0;
 var prizes = [550, 800, 5000, 'bankrupt', 600, 300, 3500, 600, 300, 700, 450, 350, 800, 'lose a turn', 300, 400, 600, 'bankrupt', 900, 'free spin', 500, 900, 300, 400];
 var multiplier = 0;
 var turnsLeft = 5;
+var round = 0;
 
 function loadWord() {
-	word = "chameleon";
+	let library = ["chameleon", "salamander", "concord", "inconceivable", "superfluous"];
+
+   word = library[round];
+   round++;
 	wordLength = word.length;
+	turnsLeft = 5;
+	$('#round span').text(round);
+	$('.letter-boxes').empty();
 	for (var i = 0; i < wordLength; i++) {
 		$('.letter-boxes').append(`<div class="col guess-boxes"></div>`)
 	}
