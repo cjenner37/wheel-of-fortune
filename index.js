@@ -1,41 +1,86 @@
 $(document).ready(function () {
 	var word, wordLength;
+	var alphabetDisabled = true;
+	var consonantDisabled = false;
+	var usedLetters = [];
 	loadWord();
 
-	$('.btn-success').click(function () {
+	$('.spin-wheel').click(function () {
 			spinWheel();
+			$(this).prop('disabled', true);
+			alphabetDisabled = false;
+			consonantDisabled = false;
+
+
 	})
 	
 	$('.alphabet').click(function () {
-		$letterChosen = $(this).data("letter");
-		$(this).css({'background-color': 'lightgrey', 'opacity': '.7', 'color': 'grey', 'border': '1px solid grey'});
-		checkLetter($letterChosen);
-		console.log($letterChosen);
+		if (!alphabetDisabled) {
+			$letterChosen = $(this).data("letter");
+
+			if ($(this).hasClass('used')) {
+				alert("You've already tried that one.")
+
+			} else if ($(this).hasClass('vowel')) {
+				$('#myModal').modal();
+				$('#buy-vowel').click(function () {
+					$('#myModal').modal('toggle');
+					buyVowel();
+				})
+
+			} else if (!consonantDisabled) {
+				$(this).css({'background-color': 'lightgrey', 'opacity': '.7', 'color': 'grey', 'border': '1px solid grey'});
+				$(this).addClass('used');
+				checkLetter($letterChosen);
+				usedLetters.push($letterChosen);
+				console.log(usedLetters);
+				consonantDisabled = true;
+
+				$('.btn-success').prop('disabled', false);
+			}
+		}
 	})
 	
 })
 
-	function loadWord() {
-		word = "chameleon";
-		wordLength = word.length;
-		for (var i = 0; i < wordLength; i++) {
-			$('.letter-boxes').append(`<div class="col guess-boxes"></div>`)
-		}
-	}
+var bankValue = 0;
+var prizes = [550, 800, 5000, 'bankrupt', 600, 300, 3500, 600, 300, 700, 450, 350, 800, 'lose a turn', 300, 400, 600, 'bankrupt', 900, 'free spin', 500, 900, 300, 400];
+var multiplier = 0;
 
-	function spinWheel() {
-		var prizes = [550, 800, 'jackpot', 'bankrupt', 600, 300, 3500, 600, 300, 700, 450, 350, 800, 'lose a turn', 300, 400, 600, 'bankrupt', 900, 'free spin', 500, 900, 300, 400];
-		var $wheel = $('#wheel-image');
-		let multiplier = Math.floor(Math.random() * 24);
-		let degree_value = (multiplier * 15);
-		$wheel.css({'transform': 'rotate(' + degree_value + 'deg)'});
-		console.log(prizes[multiplier]);
+function loadWord() {
+	word = "chameleon";
+	wordLength = word.length;
+	for (var i = 0; i < wordLength; i++) {
+		$('.letter-boxes').append(`<div class="col guess-boxes"></div>`)
 	}
+}
 
-	function checkLetter(letter) {
-		for (var i = 0; i < wordLength; i++) {
-			if (word[i] === letter) {
-				$('.guess-boxes')[i].append(letter);
+function spinWheel() {
+	var $wheel = $('#wheel-image');
+	multiplier = Math.floor(Math.random() * 24);
+	let degree_value = (multiplier * 15);
+	$wheel.css({'transform': 'rotate(' + degree_value + 'deg)'});
+	console.log(prizes[multiplier]);
+	if (!Number.isInteger(prizes[multiplier])) {
+		console.log("Not an integer");
+	}
+}
+
+function checkLetter(letter) {
+	let correctLetterQuantity = 0;
+	for (var i = 0; i < wordLength; i++) {
+		if (word[i] === letter) {
+			$('.guess-boxes')[i].append(letter);
+			correctLetterQuantity++;
+			if (Number.isInteger(prizes[multiplier])) {
+				bankValue = bankValue + prizes[multiplier];
+				$('#bank span').text(bankValue);
 			}
 		}
 	}
+}
+
+function buyVowel(letter) {
+	bankValue -= 250;
+	$('#bank span').text(bankValue);
+}

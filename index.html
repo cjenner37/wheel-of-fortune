@@ -13,6 +13,28 @@
 </head>
 <body>
 
+	<!-- Buy a Vowel Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Buy Vowel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Vowels cost $250. Are you sure you want to buy one?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="buy-vowel" class="btn btn-primary">Buy Vowel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 	<div id="logo-div">
 		<div id="logo"><img src="images/logo.png" class="img-fluid float-left"></div>
 	</div>
@@ -23,7 +45,7 @@
 			<div class="col-5" id="wheel">
 				<img id="wheel-image" src="images/wheel.png">
 				<div id="arrow"></div>
-				<button type="button" class="btn btn-success">Spin the Wheel!</button>
+				<button type="button" class="btn btn-success spin-wheel">Spin the Wheel!</button>
 			</div>
 
 			
@@ -60,9 +82,9 @@
 					<div data-letter="z" class="alphabet col">Z</div>
 				</div>
 
-				<div class="row letter-boxes">
-					
-				</div>
+				<div class="row letter-boxes"></div>
+
+				<div id="bank">$<span>0</span></div>
 			</div>
 		</div>
 
