@@ -20,19 +20,19 @@ $(document).ready(function () {
 				alert("You've already tried that one.")
 
 			} else if ($(this).hasClass('vowel')) {
+				let $self = $(this);
 				$('#myModal').modal();
 				$('#buy-vowel').click(function () {
 					$('#myModal').modal('toggle');
+					$($self).css({'background-color': 'lightgrey', 'opacity': '.7', 'color': 'grey', 'border': '1px solid grey'});
+					$($self).addClass('used');
 					buyVowel($letterChosen);
-					// usedLetters.push($letterChosen);
-					$(this).addClass('used');
 				})
 
 			} else if (!consonantDisabled) {
 				$(this).css({'background-color': 'lightgrey', 'opacity': '.7', 'color': 'grey', 'border': '1px solid grey'});
 				$(this).addClass('used');
 				checkLetter($letterChosen);
-				// usedLetters.push($letterChosen);
 				console.log(usedLetters);
 				consonantDisabled = true;
 				if (turnsLeft > 0) {
