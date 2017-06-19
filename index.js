@@ -11,6 +11,9 @@ $(document).ready(function () {
 			loadWord();
 		} else {
 			alert("You Lose!");
+			alphabetDisabled = true;
+			$('.btn-success').prop('disabled', true);
+			$(this).prop('disabled', true);
 		}
 	})
 
