@@ -24,14 +24,15 @@ $(document).ready(function () {
 				$('#buy-vowel').click(function () {
 					$('#myModal').modal('toggle');
 					buyVowel($letterChosen);
-					usedLetters.push($letterChosen);
+					// usedLetters.push($letterChosen);
+					$(this).addClass('used');
 				})
 
 			} else if (!consonantDisabled) {
 				$(this).css({'background-color': 'lightgrey', 'opacity': '.7', 'color': 'grey', 'border': '1px solid grey'});
 				$(this).addClass('used');
 				checkLetter($letterChosen);
-				usedLetters.push($letterChosen);
+				// usedLetters.push($letterChosen);
 				console.log(usedLetters);
 				consonantDisabled = true;
 				if (turnsLeft > 0) {
