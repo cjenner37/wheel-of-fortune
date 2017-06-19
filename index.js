@@ -25,7 +25,8 @@ $(document).ready(function () {
 				$('#myModal').modal();
 				$('#buy-vowel').click(function () {
 					$('#myModal').modal('toggle');
-					buyVowel();
+					buyVowel($letterChosen);
+					usedLetters.push($letterChosen);
 				})
 
 			} else if (!consonantDisabled) {
@@ -83,4 +84,9 @@ function checkLetter(letter) {
 function buyVowel(letter) {
 	bankValue -= 250;
 	$('#bank span').text(bankValue);
+	for (var i = 0; i < wordLength; i++) {
+		if (word[i] === letter) {
+			$('.guess-boxes')[i].append(letter);
+		}
+	}
 }
