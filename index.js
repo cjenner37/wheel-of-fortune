@@ -75,7 +75,7 @@ function loadWord() {
 }
 
 function spinWheel() {
-	var $wheel = $('#wheel-image');
+	var $wheel = $('#wheel-image'), degree = 0;
 	multiplier = Math.floor(Math.random() * 24);
 	let degree_value = (multiplier * 15);
 	$wheel.css({'transform': 'rotate(' + degree_value + 'deg)'});

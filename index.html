@@ -49,9 +49,9 @@
 			</div>
 
 			
-			<div class="col-7 container-fluid">
+			<div class="col-7 container-fluid" id="right-half">
 
-				<div id="choose-letter"><h3>Choose a Letter:</h3></div>
+				<div id="choose-letter"><h2>Choose a Letter:</h2></div>
 
 				<div class="row">
 					<div data-letter="a" class="alphabet vowel col">A</div>
@@ -82,14 +82,20 @@
 					<div data-letter="z" class="alphabet col">Z</div>
 				</div>
 
-				<div class="row letter-boxes"></div>
+				<div class="row letter-boxes"></div><br>
 
-				<div id="bank">$<span>0</span></div>
-				<div id="round">Round: <span></span></div>
-				<div id="turn">Turns Left: <span>5</span></div>
-				
-				<input class="form-control" id="guess" type="text" value="Solve..." id="example-text-input">
-				<button type="submit" id="solve" class="btn btn-primary">Submit</button>
+				<div class="row" id="game-data">
+					<div class="col" id="round"><h3>Round: <span></span></h3></div>
+					<div class="col" id="bank"><h3>You have: $<span>0</span></h3></div>
+					<div class="col" id="turn"><h3>Turns Left: <span>5</span></h3></div>
+				</div><br>
+
+				<div class="row">
+					<input class="col form-control" id="guess" type="text" value="Solve..." id="example-text-input">
+					<div class="col-1"></div>
+					<button type="submit" id="solve" class="col-3 btn btn-primary">Submit</button>
+					<div class="col-1"></div>
+				</div>
 			</div>
 		</div>
 
