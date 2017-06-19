@@ -10,8 +10,6 @@ $(document).ready(function () {
 			$(this).prop('disabled', true);
 			alphabetDisabled = false;
 			consonantDisabled = false;
-
-
 	})
 	
 	$('.alphabet').click(function () {
@@ -36,8 +34,9 @@ $(document).ready(function () {
 				usedLetters.push($letterChosen);
 				console.log(usedLetters);
 				consonantDisabled = true;
-
-				$('.btn-success').prop('disabled', false);
+				if (turnsLeft > 0) {
+					$('.btn-success').prop('disabled', false);
+				}
 			}
 		}
 	})
@@ -47,6 +46,7 @@ $(document).ready(function () {
 var bankValue = 0;
 var prizes = [550, 800, 5000, 'bankrupt', 600, 300, 3500, 600, 300, 700, 450, 350, 800, 'lose a turn', 300, 400, 600, 'bankrupt', 900, 'free spin', 500, 900, 300, 400];
 var multiplier = 0;
+var turnsLeft = 5;
 
 function loadWord() {
 	word = "chameleon";
@@ -65,6 +65,8 @@ function spinWheel() {
 	if (!Number.isInteger(prizes[multiplier])) {
 		console.log("Not an integer");
 	}
+	turnsLeft--;
+	$('#turn span').text(turnsLeft);
 }
 
 function checkLetter(letter) {
