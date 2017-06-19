@@ -81,7 +81,13 @@ function spinWheel() {
 	$wheel.css({'transform': 'rotate(' + degree_value + 'deg)'});
 	console.log(prizes[multiplier]);
 	if (!Number.isInteger(prizes[multiplier])) {
-		console.log("Not an integer");
+		if (prizes[multiplier] === 'bankrupt') {
+			bankValue = 0;
+		} else if (prizes[multiplier] === 'lose a turn'){
+			turnsLeft--;
+		} else if (prizes[multiplier] === 'free spin'){
+			turnsLeft++;
+		}
 	}
 	turnsLeft--;
 	$('#turn span').text(turnsLeft);
