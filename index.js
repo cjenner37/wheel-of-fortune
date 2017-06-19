@@ -33,8 +33,6 @@ $(document).ready(function () {
 				$('#myModal').modal();
 				$('#buy-vowel').click(function () {
 					$('#myModal').modal('toggle');
-					$($self).css({'background-color': 'lightgrey', 'opacity': '.7', 'color': 'grey', 'border': '1px solid grey'});
-					$($self).addClass('used');
 					buyVowel($letterChosen);
 				});
 
@@ -101,11 +99,17 @@ function checkLetter(letter) {
 }
 
 function buyVowel(letter) {
-	bankValue -= 250;
-	$('#bank span').text(bankValue);
-	for (var i = 0; i < wordLength; i++) {
-		if (word[i] === letter) {
-			$('.guess-boxes')[i].append(letter);
+	if (bankValue >= 250) {
+		bankValue -= 250;
+		$('#bank span').text(bankValue);
+		for (var i = 0; i < wordLength; i++) {
+			if (word[i] === letter) {
+				$('.guess-boxes')[i].append(letter);
+			}
 		}
+		$($self).css({'background-color': 'lightgrey', 'opacity': '.7', 'color': 'grey', 'border': '1px solid grey'});
+		$($self).addClass('used');
+	} else {
+		alert("You don't have enough money!");
 	}
 }
