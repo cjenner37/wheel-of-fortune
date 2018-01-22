@@ -13,6 +13,26 @@
 </head>
 <body>
 
+<!-- Info Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Welcome to Wheel of Fortune</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Spin the wheel to see which prize you have the opportunity to win. Then guess a letter. If it's correct, you win the prize. If not, you'll have to spin again. Good luck!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 	<!-- Buy a Vowel Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -51,7 +71,7 @@
 			
 			<div class="col-7 container-fluid" id="right-half">
 
-				<div id="choose-letter"><h2>Choose a Letter:</h2></div>
+				<div id="choose-letter"><h2>Choose a Letter:</h2><button class="btn btn-outline-warning" id="help">Need Help?</button></div>
 
 				<div class="row">
 					<div data-letter="a" class="alphabet vowel col">A</div>
@@ -91,7 +111,7 @@
 				</div><br>
 
 				<div class="row">
-					<input class="col form-control" id="guess" type="text" value="Solve..." id="example-text-input">
+					<input class="col form-control" id="guess" type="text" placeholder="Solve..." id="example-text-input">
 					<div class="col-1"></div>
 					<button type="submit" id="solve" class="col-3 btn btn-primary">Submit</button>
 					<div class="col-1"></div>

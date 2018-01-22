@@ -6,6 +6,12 @@ var usedLetters = [];
 $(document).ready(function () {
 	loadWord();
 
+	$('#infoModal').modal();
+
+	$('#help').click(function () {
+		$('#infoModal').modal();
+	})
+
 	$('#solve').click(function () {
 		if (word === $('#guess').val()) {
 			alert("You Win!");
